@@ -20,17 +20,17 @@ public class flyinf : MonoBehaviour
     {
         if (other.gameObject.tag == "waypoints")
         {
-            Selectedwaypoint = Random.Range(0, waypoints.Count - 1);
-            if(Selectedwaypoint != OldSelectedWaypoint)
-            {
-                
-                OldSelectedWaypoint = Selectedwaypoint;
-            }
-            else if(Selectedwaypoint == OldSelectedWaypoint)
+            while (OldSelectedWaypoint == Selectedwaypoint)
             {
                 Selectedwaypoint = Random.Range(0, waypoints.Count - 1);
+                if(Selectedwaypoint != OldSelectedWaypoint)
+                {
+
+                   break;
+                }
             }
-           
+            OldSelectedWaypoint = Selectedwaypoint;
+
         }
     }
 
